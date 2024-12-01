@@ -1,0 +1,68 @@
+<br><br><br><br>
+<div class="container-sm">
+  <div class="col-md-6 offset-md-3 container-sm">
+
+    <form #f="ngForm" (ngSubmit)="f.form.valid && onSubmit()" class="row g-3 form-container container-sm">
+
+      <div class="form-group col-md-6">
+        <label><b>Username</b></label>
+        <input type="text" class="form-control" id="username" [(ngModel)]="employee.username" required minlength="3"
+          name="username" #username="ngModel" [ngClass]="{ 'is-invalid': f.submitted && username.errors }" />
+        <div *ngIf="f.submitted && username.errors" class="invalid-feedback">
+          <div *ngIf="username.errors['required']">Username is required</div>
+          <div *ngIf="username.errors['minlength']">Username must be at least 3 characters long</div>
+        </div>
+      </div>
+
+      <div class="form-group col-md-6">
+        <label><b>Email</b></label>
+        <input type="email" class="form-control" id="email" [(ngModel)]="employee.email" required email
+          name="email" #email="ngModel" [ngClass]="{ 'is-invalid': f.submitted && email.errors }" />
+        <div *ngIf="f.submitted && email.errors" class="invalid-feedback">
+          <div *ngIf="email.errors['required']">Email is required</div>
+          <div *ngIf="email.invalid">Invalid email format</div>
+        </div>
+      </div>
+
+      <br><br>
+
+      <div class="form-group col-md-6">
+        <label class="form-label"><b>Zone</b></label>
+        <select id="zone" class="form-select" [(ngModel)]="employee.zone" name="zone" required
+            #zone="ngModel" [ngClass]="{ 'is-invalid': f.submitted && zone.errors }">
+            <div *ngIf="f.submitted && zone.errors" class="invalid-feedback">
+                <div *ngIf="zone.errors['required']">Zone is required</div>
+            </div>
+            <option selected disabled value="">Choose...</option>
+            <option>Airside</option>
+            <option>Landside</option>
+            <option>Terminal</option>
+        </select>
+      </div>
+
+      <br><br>
+
+      <div class="form-group col-md-6">
+        <label><b>Photo URL</b></label>
+        <input type="url" class="form-control" id="photoUrl" [(ngModel)]="employee.photoUrl" name="photoUrl" 
+          required #photoUrl="ngModel" [ngClass]="{ 'is-invalid': f.submitted && photoUrl.errors }" />
+        <div *ngIf="f.submitted && photoUrl.errors" class="invalid-feedback">
+          <div *ngIf="photoUrl.errors['required']">Photo URL is required</div>
+        </div>
+      </div>
+
+      <br><br>
+
+      <div class="form-group col-md-6">
+        <button class="btn btn-success full-width-button" type="submit">Submit</button>
+      </div>
+
+      <div class="col-md-6">
+        <button type="button" (click)="goToEmployeeList()"
+          class="btn btn-danger full-width-button">Cancel</button>
+      </div>
+
+    </form>
+
+  </div>
+</div>

@@ -1,0 +1,26 @@
+.btn{
+    margin-right: 20px;
+    box-shadow: 10 4px 8px rgba(0, 0, 0, 0.1);
+
+}
+
+.inline{
+    display: flex;
+}
+
+
+.inline .btn{
+    margin-left: 1rem;
+}
+
+input{
+    border: 1px solid #000000;
+    box-shadow: 10 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.employee-photo {
+    width: 50px;         /* Set a fixed width for the photo */
+    height: 50px;        /* Set a fixed height for the photo */
+    object-fit: cover;   /* Ensures the image fits well within the given size */
+    border-radius: 50%;  /* Makes the image circular */
+}
